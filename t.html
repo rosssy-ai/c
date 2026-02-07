@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Chocolate Day 🍫</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(135deg, #4b2c20, #7a3e2f);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-align: center;
+    }
+
+    .card {
+        background: rgba(0, 0, 0, 0.35);
+        padding: 35px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 450px;
+        box-shadow: 0 0 25px rgba(255, 192, 203, 0.3);
+        z-index: 10;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        color: #ffb3b3;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #ffecec;
+    }
+
+    .signature {
+        margin-top: 20px;
+        font-style: italic;
+        color: #ffd6d6;
+    }
+
+    /* Falling items */
+    .falling {
+        position: absolute;
+        top: -50px;
+        animation: fall linear infinite;
+        opacity: 0.9;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(-50px) rotate(0deg);
+        }
+        100% {
+            transform: translateY(110vh) rotate(360deg);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Happy Chocolate Day 🍫❤️</h1>
+    <p>
+        Yeh chocolate sirf ek sweet treat nahi hoti,<br>
+        balki yeh bahut kuch khe jati h, bina kuch bole hee,....<br><br>
+       
+        Jaise chocolate thodi se meethi aur thodi se special hoti hai,<br>
+        waise hee aap bhi ho — simple se, par dil ki bohot soft, pyari se,💕.<br><br>
+
+        Shayad main zyada express nhi karta hoon,<br>
+        par har ek aapka khayal mujhe smile krne pe majboor kr deta hai, aur sayd mujhe aapka nickname mil gaya h <b>"CHOCOLATE"</b>😂😅.
+    </p>
+
+    <div class="signature">
+        — For someone sweeter than chocolate 💖<br><br>
+          From---Aapka Dumb😅
+        
+    </div>
+</div>
+
+<script>
+    const emojis = ["❤️", "🍫"];
+
+    function createFallingItem() {
+        const item = document.createElement("div");
+        item.classList.add("falling");
+        item.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+        item.style.left = Math.random() * 100 + "vw";
+        item.style.fontSize = Math.random() * 20 + 20 + "px";
+        item.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+        document.body.appendChild(item);
+
+        setTimeout(() => {
+            item.remove();
+        }, 7000);
+    }
+
+    setInterval(createFallingItem, 300);
+</script>
+
+</body>
+</html>
